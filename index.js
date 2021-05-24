@@ -1,17 +1,26 @@
 const express = require("express");
 const session = require("express-session");
+var cors = require("cors");
 
 const db = require("./Db_Connection/db.js");
 const { Login } = require("./Endpoints/Login.js");
 const { Logout } = require("./Endpoints/logout.js");
 const { StudentSignup } = require("./Endpoints/Signup/studentSignup.js");
 const { TeacherSignup } = require("./Endpoints/Signup/teacherSignup.js");
+const { me } = require("./Endpoints/me.js");
 
 const app = express();
 const port = 4000;
 const MAX_AGE = 1000 * 60 * 60 * 5;
 
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+
 app.use(express.json());
+app.use(cors(corsOptions));
 app.use(
   session({
     secret: "Secret",
@@ -38,6 +47,8 @@ app.get("/", (req, res) => {
     res.status(500).send(null);
   }
 });
+
+app.get("/me", me);
 
 app.post("/signup/student", StudentSignup);
 
