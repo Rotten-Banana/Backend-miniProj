@@ -13,7 +13,7 @@ const StudentSignup = (req, res) => {
         let sql = "SELECT type_id FROM examportal.users WHERE type_id=?;";
         db.query(sql, user.type_id, async (err, result) => {
           if (err) res.status(400).send(err);
-          if (result[0]) res.status(400).send("College-Id already exist");
+          if (result[0]) res.send("College-Id already exist");
           else {
             user.password = await argon2.hash(user.password);
             let sql_insert = `INSERT INTO users ( type , full_name, email, password, type_id )
@@ -28,13 +28,20 @@ const StudentSignup = (req, res) => {
                 user.type_id,
               ],
               (err, result) => {
-                if (err) res.status(400).send(err);
-                else res.send("inserted");
+                if (err) {
+                  if (err.errno === 1062) {
+                    if (err.message.includes("Email")) {
+                      res.send("This email is already");
+                    }
+                  } else res.send(err);
+                } else {
+                  res.send("inserted");
+                }
               }
             );
           }
         });
-      } else res.status(400).send("invalid form");
+      } else res.send("invalid form");
     } catch {
       res.status(500).send(null);
     }
