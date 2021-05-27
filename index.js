@@ -8,7 +8,10 @@ const { Logout } = require("./Endpoints/logout.js");
 const { StudentSignup } = require("./Endpoints/Signup/studentSignup.js");
 const { TeacherSignup } = require("./Endpoints/Signup/teacherSignup.js");
 const { me } = require("./Endpoints/me.js");
-const { ValidateInstituteKey } = require("./Endpoints/ValidateInstituteKey.js");
+const {
+  ValidateInstituteKey,
+} = require("./Endpoints/Validate/validateInstituteKey.js");
+const { CreatePaper } = require("./Endpoints/Teacher/createPaper.js");
 
 const app = express();
 const port = 4000;
@@ -60,6 +63,8 @@ app.post("/validate/institutekey", ValidateInstituteKey);
 app.post("/login", Login);
 
 app.post("/logout", Logout);
+
+app.post("/teacher/createpaper", CreatePaper);
 
 app.listen(port, () => {
   console.log(`server is running at: http://localhost:${port}`);
