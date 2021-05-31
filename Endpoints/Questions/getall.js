@@ -7,7 +7,9 @@ const GetAll = (req, res) => {
         "SELECT id,teacherName, subjectCode, subjectName,time FROM examportal.questions;";
       db.query(sql, (err, result) => {
         if (err) res.send(err);
-        res.send(result);
+        if (result) {
+          res.send(result);
+        } else res.send("no question paper found");
       });
     } else res.send("login first");
   } catch (err) {

@@ -13,6 +13,7 @@ const {
 } = require("./Endpoints/Validate/validateInstituteKey.js");
 const { CreatePaper } = require("./Endpoints/Teacher/createPaper.js");
 const { GetAll } = require("./Endpoints/Questions/getall.js");
+const { GetById } = require("./Endpoints/Questions/getById.js");
 
 const app = express();
 const port = 4000;
@@ -56,6 +57,8 @@ app.get("/", (req, res) => {
 app.get("/questions/getall", GetAll);
 
 app.get("/me", me);
+
+app.post("/question/getbyid", GetById);
 
 app.post("/signup/student", StudentSignup);
 
