@@ -12,6 +12,7 @@ const {
   ValidateInstituteKey,
 } = require("./Endpoints/Validate/validateInstituteKey.js");
 const { CreatePaper } = require("./Endpoints/Teacher/createPaper.js");
+const { GetAll } = require("./Endpoints/Questions/getall.js");
 
 const app = express();
 const port = 4000;
@@ -51,6 +52,8 @@ app.get("/", (req, res) => {
     res.status(500).send(null);
   }
 });
+
+app.get("/questions/getall", GetAll);
 
 app.get("/me", me);
 
