@@ -1,14 +1,14 @@
 const db = require("../../Db_Connection/db");
 
-const GetById = (req, res) => {
+const GetByUserId = (req, res) => {
   try {
-    const paperId = req.body.paperId;
+    const teacherId = req.body.teacherId;
     if (req.session.user) {
-      const sql = "SELECT * FROM examportal.questions WHERE id=?;";
-      db.query(sql, paperId, (err, result) => {
+      const sql = "SELECT * FROM examportal.questions WHERE teacherId=?;";
+      db.query(sql, teacherId, (err, result) => {
         if (err) res.send(err);
-        if (result[0]) {
-          res.send(result[0]);
+        if (result) {
+          res.send(result);
         } else res.send("no question paper found of the given id");
       });
     } else res.send("login first");
@@ -18,5 +18,5 @@ const GetById = (req, res) => {
 };
 
 module.exports = {
-  GetById,
+  GetByUserId,
 };

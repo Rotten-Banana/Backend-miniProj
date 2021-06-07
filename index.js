@@ -18,6 +18,7 @@ const {
   CheckEligibility,
 } = require("./Endpoints/Validate/CheckEligibility.js");
 const { InsertAnswer } = require("./Endpoints/Answer/InsertAnswer.js");
+const { GetByUserId } = require("./Endpoints/Questions/getByUserId.js");
 
 const app = express();
 const port = 4000;
@@ -29,7 +30,7 @@ const corsOptions = {
   optionSuccessStatus: 200,
 };
 
-app.use(express.json());
+app.use(express.json({ limit: "25mb" }));
 app.use(cors(corsOptions));
 app.use(
   session({
@@ -67,6 +68,8 @@ app.post("/validate/eligibility", CheckEligibility);
 app.post("/answer/insert", InsertAnswer);
 
 app.post("/question/getbyid", GetById);
+
+app.post("/question/getbyuserid", GetByUserId);
 
 app.post("/signup/student", StudentSignup);
 

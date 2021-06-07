@@ -14,6 +14,7 @@ const Login = (req, res) => {
               type: result[0].type,
               id: result[0].UserId,
               name: result[0].full_name,
+              typeId: result[0].type_id,
             };
             res.status(200).send("logged in");
           } else res.send("wrong password");
