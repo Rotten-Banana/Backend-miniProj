@@ -20,6 +20,7 @@ const {
 const { InsertAnswer } = require("./Endpoints/Answer/InsertAnswer.js");
 const { GetByUserId } = require("./Endpoints/Questions/getByUserId.js");
 const { GetByQuestionId } = require("./Endpoints/Answer/GetByQuestionId.js");
+const { GetByAnswerId } = require("./Endpoints/Answer/GetByAnswerId.js");
 
 const app = express();
 const port = 4000;
@@ -69,6 +70,8 @@ app.post("/validate/eligibility", CheckEligibility);
 app.post("/answer/insert", InsertAnswer);
 
 app.post("/answer/getbyquestionid", GetByQuestionId);
+
+app.post("/answer/getbyanswerid", GetByAnswerId);
 
 app.post("/question/getbyid", GetById);
 
