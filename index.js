@@ -21,6 +21,7 @@ const { InsertAnswer } = require("./Endpoints/Answer/InsertAnswer.js");
 const { GetByUserId } = require("./Endpoints/Questions/getByUserId.js");
 const { GetByQuestionId } = require("./Endpoints/Answer/GetByQuestionId.js");
 const { GetByAnswerId } = require("./Endpoints/Answer/GetByAnswerId.js");
+const { UpdateMarks } = require("./Endpoints/Answer/UpdateMarks.js");
 
 const app = express();
 const port = 4000;
@@ -68,6 +69,8 @@ app.get("/me", me);
 app.post("/validate/eligibility", CheckEligibility);
 
 app.post("/answer/insert", InsertAnswer);
+
+app.post("/answer/updatemarks", UpdateMarks);
 
 app.post("/answer/getbyquestionid", GetByQuestionId);
 
