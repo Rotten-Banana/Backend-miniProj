@@ -10,7 +10,7 @@ const TeacherSignup = (req, res) => {
         validate.validateTeacherTypeId(user.type_id) &&
         validate.validateTeacherType(user.type);
       if (flag) {
-        let sql = "SELECT type_id FROM examportal.users WHERE type_id=?;";
+        let sql = "SELECT type_id FROM users WHERE type_id=?;";
         db.query(sql, user.type_id, async (err, result) => {
           if (err) res.status(400).send(err);
           if (result[0]) res.send("Teachers-Id already exist");

@@ -10,7 +10,7 @@ const StudentSignup = (req, res) => {
         validate.validateStudentTypeId(user.type_id) &&
         validate.validateStudentType(user.type);
       if (flag) {
-        let sql = "SELECT type_id FROM examportal.users WHERE type_id=?;";
+        let sql = "SELECT type_id FROM users WHERE type_id=?;";
         db.query(sql, user.type_id, async (err, result) => {
           if (err) res.status(400).send(err);
           if (result[0]) res.send("College-Id already exist");

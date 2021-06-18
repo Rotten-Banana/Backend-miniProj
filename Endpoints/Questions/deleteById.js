@@ -4,7 +4,7 @@ const DeleteById = (req, res) => {
   try {
     const paperId = req.body.paperId;
     if (req.session.user) {
-      const sql = "delete from examportal.questions where id=? and teacherId=?";
+      const sql = "delete from questions where id=? and teacherId=?";
       db.query(sql, [paperId, req.session.user.id], (err, result) => {
         if (err) res.send(err);
         else res.send("deleted");

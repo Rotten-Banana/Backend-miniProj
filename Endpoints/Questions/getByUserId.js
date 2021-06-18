@@ -4,7 +4,7 @@ const GetByUserId = (req, res) => {
   try {
     const teacherId = req.body.teacherId;
     if (req.session.user) {
-      const sql = "SELECT * FROM examportal.questions WHERE teacherId=?;";
+      const sql = "SELECT * FROM questions WHERE teacherId=?;";
       db.query(sql, teacherId, (err, result) => {
         if (err) res.send(err);
         if (result) {

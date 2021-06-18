@@ -6,7 +6,7 @@ const GetByQuestionId = (req, res) => {
     if (user) {
       const questionId = req.body.questionId;
       const sql =
-        "SELECT id, subjectCode, subjectName, userName, userTypeId, marks FROM examportal.answer WHERE questionId=?;";
+        "SELECT id, subjectCode, subjectName, userName, userTypeId, marks FROM answer WHERE questionId=?;";
       db.query(sql, questionId, (err, result) => {
         if (err) res.send(err);
         if (result) {

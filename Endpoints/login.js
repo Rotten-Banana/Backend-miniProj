@@ -5,7 +5,7 @@ const Login = (req, res) => {
   if (!req.session.user) {
     try {
       const user = req.body;
-      let sql = `SELECT * FROM examportal.users WHERE type_id=?;`;
+      let sql = `SELECT * FROM users WHERE type_id=?;`;
       db.query(sql, user.type_id, async (err, result) => {
         if (err) res.status(400).send(err);
         if (result[0]) {

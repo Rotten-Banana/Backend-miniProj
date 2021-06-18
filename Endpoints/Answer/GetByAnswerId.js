@@ -5,7 +5,7 @@ const GetByAnswerId = (req, res) => {
     const user = req.session.user;
     if (user) {
       const answerId = req.body.answerId;
-      const sql = "SELECT * FROM examportal.answer WHERE id=?;";
+      const sql = "SELECT * FROM answer WHERE id=?;";
       db.query(sql, answerId, (err, result) => {
         if (err) res.send(err);
         if (result[0]) {

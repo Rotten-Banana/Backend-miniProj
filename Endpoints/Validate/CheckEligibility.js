@@ -5,8 +5,7 @@ const CheckEligibility = (req, res) => {
     user = req.session.user;
     paperId = req.body.paperId;
     if (user) {
-      const sql =
-        "SELECT * FROM examportal.answer where questionId = ? and userId = ?;";
+      const sql = "SELECT * FROM answer where questionId = ? and userId = ?;";
       db.query(sql, [paperId, user.id], (err, result) => {
         if (err) res.send(err);
         if (result[0]) {
