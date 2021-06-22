@@ -35,6 +35,7 @@ const corsOptions = {
   optionSuccessStatus: 200,
 };
 
+app.set("trust proxy", 1);
 app.use(express.json({ limit: "25mb" }));
 app.use(cors(corsOptions));
 app.use(
@@ -45,7 +46,7 @@ app.use(
     saveUninitialized: false,
     cookie: {
       maxAge: MAX_AGE,
-      sameSite: "strict",
+      sameSite: "None",
       secure: false,
     },
   })
