@@ -36,6 +36,7 @@ const corsOptions = {
 };
 
 const sessionConfig = {
+  credentials: true,
   secret: "Secret",
   resave: true,
   name: "Sid",
@@ -44,7 +45,6 @@ const sessionConfig = {
     maxAge: MAX_AGE,
     sameSite: "None",
     secure: true,
-    httpOnly: true,
   },
 };
 
