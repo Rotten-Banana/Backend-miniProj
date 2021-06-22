@@ -45,7 +45,6 @@ const sessionConfig = {
     maxAge: MAX_AGE,
     sameSite: "None",
     secure: true,
-    domain: ".internal-examination-portal.vercel.app",
   },
 };
 
