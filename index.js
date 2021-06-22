@@ -3,7 +3,7 @@ const session = require("express-session");
 var cors = require("cors");
 
 const db = require("./Db_Connection/db.js");
-const { Login } = require("./Endpoints/Login.js");
+const { Login } = require("./Endpoints/login.js");
 const { Logout } = require("./Endpoints/logout.js");
 const { StudentSignup } = require("./Endpoints/Signup/studentSignup.js");
 const { TeacherSignup } = require("./Endpoints/Signup/teacherSignup.js");
