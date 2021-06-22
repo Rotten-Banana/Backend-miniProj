@@ -2,11 +2,11 @@ const mysql = require("mysql2");
 require("dotenv").config();
 
 const connection = mysql.createConnection({
-  host: process.env.DB_HOST || "localhost",
+  host: "sql6.freemysqlhosting.net" || "localhost",
   port: 3306,
-  user: process.env.DB_USER || "root",
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME || "examportal",
+  user: "sql6419836" || "root",
+  password: "fHmRjyj5g5",
+  database: "sql6419836" || "examportal",
 });
 
 connection.connect(function (err) {

@@ -4,7 +4,7 @@ const GetById = (req, res) => {
   try {
     const paperId = req.body.paperId;
     if (req.session.user) {
-      const sql = "SELECT * FROM questions WHERE id=?;";
+      const sql = "SELECT * FROM questions WHERE id=? AND active=1;";
       db.query(sql, paperId, (err, result) => {
         if (err) res.send(err);
         if (result[0]) {

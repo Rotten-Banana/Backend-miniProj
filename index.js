@@ -98,6 +98,6 @@ app.post("/logout", Logout);
 
 app.post("/teacher/createpaper", CreatePaper);
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`server is running at: http://localhost:${port}`);
 });

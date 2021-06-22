@@ -4,7 +4,7 @@ const GetAll = (req, res) => {
   try {
     if (req.session.user) {
       const sql =
-        "SELECT id,teacherName, subjectCode, subjectName,time FROM questions;";
+        "SELECT id,teacherName, subjectCode, subjectName,time FROM questions WHERE active=1;";
       db.query(sql, (err, result) => {
         if (err) res.send(err);
         if (result) {
