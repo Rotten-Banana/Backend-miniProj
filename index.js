@@ -44,10 +44,11 @@ const sessionConfig = {
     maxAge: MAX_AGE,
     sameSite: "None",
     secure: true,
+    httpOnly: true,
   },
 };
 
-// app.set("trust proxy", 1);
+app.set("trust proxy", 1);
 app.use(express.json({ limit: "25mb" }));
 app.use(cors(corsOptions));
 app.use(session(sessionConfig));
