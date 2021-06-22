@@ -30,7 +30,7 @@ const port = 4000;
 const MAX_AGE = 1000 * 60 * 60 * 5;
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://internal-examination-portal.vercel.app",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
