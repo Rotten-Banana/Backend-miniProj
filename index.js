@@ -45,7 +45,7 @@ const sessionConfig = {
     maxAge: MAX_AGE,
     sameSite: "None",
     secure: true,
-    domain: "internal-examination.herokuapp.com",
+    domain: "https://internal-examination-portal.vercel.app",
   },
 };
 
