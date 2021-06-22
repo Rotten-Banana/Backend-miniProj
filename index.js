@@ -35,22 +35,22 @@ const corsOptions = {
   optionSuccessStatus: 200,
 };
 
+const sessionConfig = {
+  secret: "Secret",
+  resave: true,
+  name: "Sid",
+  saveUninitialized: false,
+  cookie: {
+    maxAge: MAX_AGE,
+    sameSite: "None",
+    secure: true,
+  },
+};
+
 // app.set("trust proxy", 1);
 app.use(express.json({ limit: "25mb" }));
 app.use(cors(corsOptions));
-app.use(
-  session({
-    secret: "Secret",
-    resave: true,
-    name: "Sid",
-    saveUninitialized: false,
-    cookie: {
-      maxAge: MAX_AGE,
-      sameSite: false,
-      secure: false,
-    },
-  })
-);
+app.use(session(sessionConfig));
 
 app.get("/", (req, res) => {
   try {
