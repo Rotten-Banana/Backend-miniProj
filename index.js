@@ -53,7 +53,7 @@ app.use(
 
 app.get("/", (req, res) => {
   try {
-    const sql = "SELECT * FROM examportal.users;";
+    const sql = "SELECT * FROM users;";
     db.query(sql, (err, result) => {
       if (err) res.send(err);
       res.send(result);
